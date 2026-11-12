@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamRandomizer" format=3]
+
+[ext_resource type="AudioStream" path="res://audio/enemy_shot.wav" id="1_mwp8k"]
+[ext_resource type="AudioStream" path="res://audio/enemy_shot_02.wav" id="2_bqm4b"]
+
+[resource]
+random_volume_offset_db = 0.7
+streams_count = 2
+stream_0/stream = ExtResource("1_mwp8k")
+stream_1/stream = ExtResource("2_bqm4b")

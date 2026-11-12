@@ -1,0 +1,27 @@
+{
+  "name": "HELIX S-07",
+  "blender": "4.5.14 LTS",
+  "triangles": 43696,
+  "meshes": 38,
+  "materials": 10,
+  "bounds_blender": [
+    [
+      -0.8999999761581421,
+      -0.7100000381469727,
+      -0.3190000057220459
+    ],
+    [
+      0.8999999761581421,
+      0.7100000381469727,
+      0.2565000057220459
+    ]
+  ],
+  "game_forward": "-Z",
+  "rotors": [
+    "Rotors/Rotor0/Blades0",
+    "Rotors/Rotor1/Blades1",
+    "Rotors/Rotor2/Blades2",
+    "Rotors/Rotor3/Blades3"
+  ],
+  "glb": "DroneArena\\assets\\models\\helix_sentinel.glb"
+}

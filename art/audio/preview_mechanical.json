@@ -1,0 +1,41 @@
+{
+  "events": [
+    {
+      "name": "drone_front",
+      "seconds": 0.0
+    },
+    {
+      "name": "drone_right",
+      "seconds": 1.046
+    },
+    {
+      "name": "drone_left",
+      "seconds": 2.246
+    },
+    {
+      "name": "drone_front_loop",
+      "seconds": 3.445
+    },
+    {
+      "name": "silence",
+      "seconds": 4.645
+    },
+    {
+      "name": "relay_activation",
+      "seconds": 5.419
+    },
+    {
+      "name": "door_near",
+      "seconds": 7.051
+    },
+    {
+      "name": "repair_pickup",
+      "seconds": 8.743
+    },
+    {
+      "name": "boss_rotor",
+      "seconds": 9.882
+    }
+  ],
+  "length_seconds": 11.968
+}

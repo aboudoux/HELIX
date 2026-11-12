@@ -1,0 +1,134 @@
+{
+  "name": "Les trois relais",
+  "assets": [
+    {
+      "glb": "helix_mission_map.glb",
+      "triangles": 697000,
+      "meshes": 216,
+      "materials": 9,
+      "bounds_godot": [
+        [
+          -64.56000518798828,
+          -1.0,
+          -98.55999755859375
+        ],
+        [
+          68.55999755859375,
+          7.0,
+          72.55999755859375
+        ]
+      ],
+      "sectors": [
+        "AccesA_Droite",
+        "AccesA_Gauche",
+        "AccesB_Droite",
+        "AccesB_Gauche",
+        "AccesC_Droite",
+        "AccesC_Gauche",
+        "CargoCloison",
+        "CargoCloisonSud",
+        "CloisonCargo",
+        "CloisonReacteur",
+        "EnergieCloison",
+        "EnergieNord",
+        "EnergieOuest",
+        "EnergieSud",
+        "EstQuai",
+        "EstReacteurEtCour",
+        "ExtractionEst",
+        "ExtractionNord",
+        "ExtractionOuest",
+        "ExtractionPad",
+        "Floor_0",
+        "Floor_1",
+        "Floor_2",
+        "Floor_3",
+        "Floor_4",
+        "Floor_5",
+        "Floor_6",
+        "GateFrame_0",
+        "GateFrame_1",
+        "GateFrame_2",
+        "Guidage",
+        "LogistiqueNord",
+        "LogistiqueOuest",
+        "LogistiqueSud",
+        "OuestCourEtQuai",
+        "OuestReacteurNord",
+        "OuestReacteurSud",
+        "Passerelles",
+        "QuaiSud",
+        "RayonnageLogistique",
+        "Reactor",
+        "TechniqueCloison",
+        "TechniqueCloisonSud",
+        "TechniqueEst",
+        "TechniqueNord",
+        "TechniqueSud"
+      ]
+    },
+    {
+      "glb": "helix_mission_leaf.glb",
+      "triangles": 1188,
+      "meshes": 4,
+      "materials": 4,
+      "bounds_godot": [
+        [
+          -1.5,
+          0.0,
+          -0.25
+        ],
+        [
+          1.5,
+          5.0,
+          0.25
+        ]
+      ],
+      "sectors": [
+        "LeafParts"
+      ]
+    },
+    {
+      "glb": "helix_mission_relay.glb",
+      "triangles": 1572,
+      "meshes": 8,
+      "materials": 8,
+      "bounds_godot": [
+        [
+          -0.5,
+          0.0,
+          -0.4000000059604645
+        ],
+        [
+          0.5,
+          1.399999976158142,
+          0.4000000059604645
+        ]
+      ],
+      "sectors": [
+        "RelayParts"
+      ]
+    },
+    {
+      "glb": "helix_mission_medical.glb",
+      "triangles": 972,
+      "meshes": 5,
+      "materials": 5,
+      "bounds_godot": [
+        [
+          -0.4300000071525574,
+          -0.009999990463256836,
+          -0.3100000023841858
+        ],
+        [
+          0.4300000071525574,
+          0.550000011920929,
+          0.31300002336502075
+        ]
+      ],
+      "sectors": [
+        "KitParts"
+      ]
+    }
+  ]
+}

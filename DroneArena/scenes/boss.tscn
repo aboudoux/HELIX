@@ -1,0 +1,104 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/boss.gd" id="boss"]
+[ext_resource type="PackedScene" path="res://assets/models/helix_boss.glb" id="model"]
+[ext_resource type="AudioStream" path="res://audio/enemy_rifle.tres" id="shot"]
+[ext_resource type="AudioStream" path="res://audio/armor_impact.tres" id="hit"]
+[ext_resource type="AudioStream" path="res://audio/boss_rotor.wav" id="rotor"]
+[ext_resource type="Script" path="res://scripts/rotor_audio.gd" id="rotor_audio"]
+
+[sub_resource type="BoxShape3D" id="shape"]
+size = Vector3(6.1,2.4,5.2)
+
+[sub_resource type="CylinderMesh" id="line"]
+top_radius = 0.012
+bottom_radius = 0.012
+height = 1.0
+radial_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="red"]
+shading_mode = 0
+albedo_color = Color(1,0.12,0.02,1)
+
+[sub_resource type="BoxMesh" id="health"]
+size = Vector3(1,0.1,0.1)
+
+[node name="Cerbere" type="CharacterBody3D" groups=["enemies", "boss"]]
+process_mode = 1
+motion_mode = 1
+collision_layer = 8
+collision_mask = 11
+script = ExtResource("boss")
+drone_name = "HELIX M-90  /  CERBÈRE"
+max_health = 44
+initial_delay = 2.5
+
+[node name="HitShape" type="CollisionShape3D" parent="."]
+shape = SubResource("shape")
+
+[node name="Hull" type="Node3D" parent="."]
+
+[node name="VisualModel" parent="Hull" instance=ExtResource("model")]
+
+[node name="Muzzle" type="Marker3D" parent="Hull"]
+position = Vector3(0,0,-1.9)
+
+[node name="HealthFill" type="MeshInstance3D" parent="Hull"]
+visible = false
+mesh = SubResource("health")
+
+[node name="NameTag" type="Label3D" parent="Hull"]
+position = Vector3(0,1.8,0)
+billboard = 1
+font_size = 40
+pixel_size = 0.008
+modulate = Color(1,0.6,0.4,1)
+outline_size = 7
+
+[node name="State" type="Label3D" parent="Hull"]
+position = Vector3(0,1.4,0)
+billboard = 1
+font_size = 26
+pixel_size = 0.007
+modulate = Color(1,0.25,0.08,1)
+outline_size = 6
+
+[node name="EyeLight" type="OmniLight3D" parent="Hull"]
+position = Vector3(0,0.16,-2.15)
+light_color = Color(1,0.015,0.005,1)
+light_energy = 1.0
+omni_range = 4.0
+
+[node name="Warning" type="MeshInstance3D" parent="."]
+visible = false
+cast_shadow = 0
+mesh = SubResource("line")
+material_override = SubResource("red")
+
+[node name="WarningRight" type="MeshInstance3D" parent="."]
+visible = false
+cast_shadow = 0
+mesh = SubResource("line")
+material_override = SubResource("red")
+
+[node name="ShotSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("shot")
+volume_db = -10.0
+unit_size = 9.0
+max_distance = 60.0
+max_polyphony = 4
+
+[node name="ImpactSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("hit")
+volume_db = -12.0
+unit_size = 6.0
+max_distance = 50.0
+max_polyphony = 3
+
+[node name="RotorSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("rotor")
+script = ExtResource("rotor_audio")
+volume_db = -10.0
+unit_size = 10.0
+max_distance = 75.0
+max_polyphony = 1

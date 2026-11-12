@@ -1,0 +1,14 @@
+{
+  "seconds": 11.968,
+  "peak_dbfs": -1.41,
+  "right_channel_advantage_db": 4.94,
+  "left_channel_advantage_db": 4.94,
+  "silence_dbfs": -180.0,
+  "segment_rms_dbfs": {
+    "drone_front": -33.76,
+    "relay_activation": -18.46,
+    "door_near": -16.43,
+    "repair_pickup": -18.98,
+    "boss_rotor": -25.72
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "name": "HELIX / SECTEUR 07",
+  "blender": "4.5.14 LTS",
+  "units": "meters",
+  "up": "+Y",
+  "assets": [
+    {
+      "glb": "helix_arena.glb",
+      "triangles": 186008,
+      "meshes": 84,
+      "materials": 11,
+      "bounds_godot": [
+        [
+          -46.150001525878906,
+          -2.0,
+          -67.1500015258789
+        ],
+        [
+          47.150001525878906,
+          29.799999237060547,
+          24.500003814697266
+        ]
+      ],
+      "sectors": [
+        "Deck_0",
+        "Deck_1",
+        "Deck_2",
+        "Deck_3",
+        "DeckBase",
+        "ReactorBase",
+        "ReactorCore",
+        "ReactorPylon_L",
+        "ReactorPylon_R",
+        "Skyline",
+        "Step_L",
+        "Step_R",
+        "WallEast",
+        "WallNorth",
+        "WallSouth",
+        "WallWest"
+      ]
+    },
+    {
+      "glb": "helix_cover.glb",
+      "triangles": 7284,
+      "meshes": 23,
+      "materials": 6,
+      "bounds_godot": [
+        [
+          -1.500000238418579,
+          0.0,
+          -1.5003998279571533
+        ],
+        [
+          1.5000003576278687,
+          1.100000023841858,
+          1.5004003047943115
+        ]
+      ],
+      "sectors": [
+        "FaceBack",
+        "FaceFront",
+        "FaceLeft",
+        "FaceRight",
+        "Frame"
+      ]
+    },
+    {
+      "glb": "helix_storage.glb",
+      "triangles": 7284,
+      "meshes": 23,
+      "materials": 6,
+      "bounds_godot": [
+        [
+          -1.4000002145767212,
+          0.0,
+          -1.5004003047943115
+        ],
+        [
+          1.4000002145767212,
+          3.200000047683716,
+          1.5004003047943115
+        ]
+      ],
+      "sectors": [
+        "FaceBack.004",
+        "FaceFront.004",
+        "FaceLeft.004",
+        "FaceRight.004",
+        "Frame.004"
+      ]
+    }
+  ]
+}

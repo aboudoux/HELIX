@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Orange"
+albedo_color = Color(0.92, 0.38, 0.13, 1)
+metallic = 0.35
+roughness = 0.58

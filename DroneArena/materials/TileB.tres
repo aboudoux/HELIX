@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "TileB"
+albedo_color = Color(0.145, 0.195, 0.23, 1)
+metallic = 0.35
+roughness = 0.67

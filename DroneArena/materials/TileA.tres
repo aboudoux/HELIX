@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "TileA"
+albedo_color = Color(0.16, 0.21, 0.25, 1)
+metallic = 0.35
+roughness = 0.67

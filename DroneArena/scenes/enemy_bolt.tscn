@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemy_bolt.gd" id="e1"]
+
+[ext_resource type="Material" path="res://materials/EnemyLaser.tres" id="e2"]
+[ext_resource type="Material" path="res://materials/EnemyLaserCore.tres" id="core"]
+
+[sub_resource type="CylinderMesh" id="r1"]
+top_radius = 0.012
+bottom_radius = 0.012
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id="r2"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 1.0
+radial_segments = 8
+
+[node name="EnemyBolt" type="Node3D" groups=["enemy_projectiles"]]
+process_mode = 1
+script = ExtResource("e1")
+
+[node name="Core" type="MeshInstance3D" parent="."]
+position = Vector3(0.0, 0.0, 0.01)
+scale = Vector3(1, 0.02, 1)
+rotation = Vector3(1.570796, 0, 0)
+mesh = SubResource("r1")
+material_override = ExtResource("core")
+cast_shadow = 0
+
+[node name="Trail" type="MeshInstance3D" parent="."]
+position = Vector3(0.0, 0.0, 0.01)
+scale = Vector3(1, 0.02, 1)
+mesh = SubResource("r2")
+material_override = ExtResource("e2")
+rotation = Vector3(1.570796, 0.0, 0.0)
+cast_shadow = 0
+
+[node name="Light" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.18, 0.04, 1)
+light_energy = 0.8
+omni_range = 1.2

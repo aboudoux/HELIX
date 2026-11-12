@@ -1,0 +1,872 @@
+[gd_scene format=3]
+
+[ext_resource type="Shader" path="res://environment/ceiling_panels.gdshader" id="panel_shader"]
+[sub_resource type="StandardMaterial3D" id="mat_frame"]
+albedo_color = Color(0.065, 0.09, 0.12, 1)
+metallic = 0.78
+roughness = 0.37
+
+[sub_resource type="StandardMaterial3D" id="mat_trim"]
+albedo_color = Color(0.35, 0.42, 0.46, 1)
+metallic = 0.75
+roughness = 0.35
+
+[sub_resource type="StandardMaterial3D" id="mat_ceramic"]
+albedo_color = Color(0.56, 0.61, 0.63, 1)
+metallic = 0.25
+roughness = 0.46
+
+[sub_resource type="StandardMaterial3D" id="mat_orange"]
+albedo_color = Color(0.9, 0.27, 0.055, 1)
+metallic = 0.42
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="mat_cyan"]
+albedo_color = Color(0.1, 0.8, 1, 1)
+metallic = 0.25
+roughness = 0.24
+emission_enabled = true
+emission = Color(0.1, 0.8, 1, 1)
+emission_energy_multiplier = 3.5
+
+[sub_resource type="StandardMaterial3D" id="mat_white"]
+albedo_color = Color(0.74, 0.88, 1, 1)
+metallic = 0.15
+roughness = 0.32
+emission_enabled = true
+emission = Color(0.74, 0.88, 1, 1)
+emission_energy_multiplier = 2.8
+
+[sub_resource type="StandardMaterial3D" id="mat_amber"]
+albedo_color = Color(1, 0.43, 0.1, 1)
+metallic = 0.25
+roughness = 0.28
+emission_enabled = true
+emission = Color(1, 0.43, 0.1, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="ShaderMaterial" id="mat_panel"]
+shader = ExtResource("panel_shader")
+
+[sub_resource type="StandardMaterial3D" id="mat_glass"]
+resource_name = "Verre orbital / légèrement bleuté"
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.12, 0.20, 0.28, 0.028)
+metallic = 0.18
+roughness = 0.12
+
+[sub_resource type="BoxMesh" id="mesh0"]
+size = Vector3(7.00000, 0.26000, 48.00000)
+
+[sub_resource type="BoxMesh" id="mesh1"]
+size = Vector3(26.00000, 0.26000, 9.00000)
+
+[sub_resource type="BoxMesh" id="mesh2"]
+size = Vector3(0.48000, 0.72000, 48.00000)
+
+[sub_resource type="BoxMesh" id="mesh3"]
+size = Vector3(40.00000, 0.72000, 0.48000)
+
+[sub_resource type="BoxMesh" id="mesh4"]
+size = Vector3(0.03500, 2.40000, 48.00000)
+
+[sub_resource type="BoxMesh" id="mesh5"]
+size = Vector3(40.00000, 2.40000, 0.03500)
+
+[sub_resource type="BoxMesh" id="mesh6"]
+size = Vector3(0.50000, 2.40000, 0.42000)
+
+[sub_resource type="BoxMesh" id="mesh7"]
+size = Vector3(0.72000, 0.52000, 47.20000)
+
+[sub_resource type="BoxMesh" id="mesh8"]
+size = Vector3(0.47000, 0.08000, 47.20000)
+
+[sub_resource type="BoxMesh" id="mesh9"]
+size = Vector3(0.06500, 0.02500, 46.80000)
+
+[sub_resource type="BoxMesh" id="mesh10"]
+size = Vector3(6.36000, 0.03500, 7.36000)
+
+[sub_resource type="BoxMesh" id="mesh11"]
+size = Vector3(0.18000, 0.38000, 30.38000)
+
+[sub_resource type="BoxMesh" id="mesh12"]
+size = Vector3(0.05000, 0.02500, 30.00000)
+
+[sub_resource type="BoxMesh" id="mesh13"]
+size = Vector3(40.00000, 0.44000, 0.24000)
+
+[sub_resource type="BoxMesh" id="mesh14"]
+size = Vector3(39.20000, 0.03500, 0.10000)
+
+[sub_resource type="BoxMesh" id="mesh15"]
+size = Vector3(2.50000, 0.34000, 0.45000)
+
+[sub_resource type="BoxMesh" id="mesh16"]
+size = Vector3(0.70000, 0.04000, 0.48000)
+
+[sub_resource type="BoxMesh" id="mesh17"]
+size = Vector3(2.40000, 0.27000, 1.00000)
+
+[sub_resource type="BoxMesh" id="mesh18"]
+size = Vector3(2.10000, 0.02500, 0.62000)
+
+[sub_resource type="BoxMesh" id="mesh19"]
+size = Vector3(5.00000, 0.03500, 0.12000)
+
+[node name="PlafondsEntrainement" type="Node3D" groups=["station_roofs"]]
+
+[node name="StandHelix" type="Node3D" parent="." groups=["roof_sector"]]
+position = Vector3(0.00000, 9.40000, 0.00000)
+
+[node name="ServiceLateral1" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, 0.00000, 0.00000)
+mesh = SubResource("mesh0")
+material_override = SubResource("mat_panel")
+
+
+[node name="ServiceTransversal2" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, 0.00000, -19.50000)
+mesh = SubResource("mesh1")
+material_override = SubResource("mat_panel")
+
+
+[node name="BandeauPerimetre3" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-20.00000, -0.22000, 0.00000)
+mesh = SubResource("mesh2")
+material_override = SubResource("mat_frame")
+
+
+[node name="BandeauPerimetre4" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.22000, -24.00000)
+mesh = SubResource("mesh3")
+material_override = SubResource("mat_frame")
+
+
+[node name="Clerestory5" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-20.00000, -1.20000, 0.00000)
+mesh = SubResource("mesh4")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Clerestory6" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(0.00000, -1.20000, -24.00000)
+mesh = SubResource("mesh5")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="ConsoleMurale7" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-20.00000, -1.20000, -20.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale8" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-20.00000, -1.20000, -12.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale9" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-20.00000, -1.20000, -4.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale10" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-20.00000, -1.20000, 4.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale11" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-20.00000, -1.20000, 12.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale12" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-20.00000, -1.20000, 20.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="Goulotte13" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-13.55000, -0.32000, 0.00000)
+mesh = SubResource("mesh7")
+material_override = SubResource("mat_ceramic")
+
+
+[node name="Rail14" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-13.55000, -0.59000, 0.00000)
+mesh = SubResource("mesh8")
+material_override = SubResource("mat_frame")
+
+
+[node name="NeonContinu15" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-13.71000, -0.64000, 0.00000)
+mesh = SubResource("mesh9")
+material_override = SubResource("mat_cyan")
+cast_shadow = 0
+
+
+[node name="NeonContinu16" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-13.39000, -0.64000, 0.00000)
+mesh = SubResource("mesh9")
+material_override = SubResource("mat_cyan")
+cast_shadow = 0
+
+
+[node name="ServiceLateral17" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, 0.00000, 0.00000)
+mesh = SubResource("mesh0")
+material_override = SubResource("mat_panel")
+
+
+[node name="ServiceTransversal18" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, 0.00000, 19.50000)
+mesh = SubResource("mesh1")
+material_override = SubResource("mat_panel")
+
+
+[node name="BandeauPerimetre19" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(20.00000, -0.22000, 0.00000)
+mesh = SubResource("mesh2")
+material_override = SubResource("mat_frame")
+
+
+[node name="BandeauPerimetre20" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.22000, 24.00000)
+mesh = SubResource("mesh3")
+material_override = SubResource("mat_frame")
+
+
+[node name="Clerestory21" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(20.00000, -1.20000, 0.00000)
+mesh = SubResource("mesh4")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Clerestory22" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(0.00000, -1.20000, 24.00000)
+mesh = SubResource("mesh5")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="ConsoleMurale23" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(20.00000, -1.20000, -20.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale24" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(20.00000, -1.20000, -12.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale25" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(20.00000, -1.20000, -4.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale26" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(20.00000, -1.20000, 4.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale27" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(20.00000, -1.20000, 12.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="ConsoleMurale28" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(20.00000, -1.20000, 20.00000)
+mesh = SubResource("mesh6")
+material_override = SubResource("mat_frame")
+
+
+[node name="Goulotte29" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(13.55000, -0.32000, 0.00000)
+mesh = SubResource("mesh7")
+material_override = SubResource("mat_ceramic")
+
+
+[node name="Rail30" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(13.55000, -0.59000, 0.00000)
+mesh = SubResource("mesh8")
+material_override = SubResource("mat_frame")
+
+
+[node name="NeonContinu31" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(13.39000, -0.64000, 0.00000)
+mesh = SubResource("mesh9")
+material_override = SubResource("mat_cyan")
+cast_shadow = 0
+
+
+[node name="NeonContinu32" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(13.71000, -0.64000, 0.00000)
+mesh = SubResource("mesh9")
+material_override = SubResource("mat_cyan")
+cast_shadow = 0
+
+
+[node name="Vitre33" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-9.75000, 0.14000, -11.25000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre34" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-9.75000, 0.14000, -3.75000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre35" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-9.75000, 0.14000, 3.75000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre36" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-9.75000, 0.14000, 11.25000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre37" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-3.25000, 0.14000, -11.25000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre38" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-3.25000, 0.14000, -3.75000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre39" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-3.25000, 0.14000, 3.75000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre40" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(-3.25000, 0.14000, 11.25000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre41" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(3.25000, 0.14000, -11.25000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre42" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(3.25000, 0.14000, -3.75000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre43" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(3.25000, 0.14000, 3.75000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre44" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(3.25000, 0.14000, 11.25000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre45" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(9.75000, 0.14000, -11.25000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre46" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(9.75000, 0.14000, -3.75000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre47" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(9.75000, 0.14000, 3.75000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="Vitre48" type="MeshInstance3D" parent="StandHelix" groups=["orbital_glass"]]
+position = Vector3(9.75000, 0.14000, 11.25000)
+mesh = SubResource("mesh10")
+material_override = SubResource("mat_glass")
+cast_shadow = 0
+
+
+[node name="NervureLongitudinale49" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-13.00000, 0.03000, 0.00000)
+mesh = SubResource("mesh11")
+material_override = SubResource("mat_frame")
+
+
+[node name="JointClair50" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-13.00000, -0.17000, 0.00000)
+mesh = SubResource("mesh12")
+material_override = SubResource("mat_trim")
+
+
+[node name="NervureLongitudinale51" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-6.50000, 0.03000, 0.00000)
+mesh = SubResource("mesh11")
+material_override = SubResource("mat_frame")
+
+
+[node name="JointClair52" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-6.50000, -0.17000, 0.00000)
+mesh = SubResource("mesh12")
+material_override = SubResource("mat_trim")
+
+
+[node name="NervureLongitudinale53" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, 0.03000, 0.00000)
+mesh = SubResource("mesh11")
+material_override = SubResource("mat_frame")
+
+
+[node name="JointClair54" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.17000, 0.00000)
+mesh = SubResource("mesh12")
+material_override = SubResource("mat_trim")
+
+
+[node name="NervureLongitudinale55" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(6.50000, 0.03000, 0.00000)
+mesh = SubResource("mesh11")
+material_override = SubResource("mat_frame")
+
+
+[node name="JointClair56" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(6.50000, -0.17000, 0.00000)
+mesh = SubResource("mesh12")
+material_override = SubResource("mat_trim")
+
+
+[node name="NervureLongitudinale57" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(13.00000, 0.03000, 0.00000)
+mesh = SubResource("mesh11")
+material_override = SubResource("mat_frame")
+
+
+[node name="JointClair58" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(13.00000, -0.17000, 0.00000)
+mesh = SubResource("mesh12")
+material_override = SubResource("mat_trim")
+
+
+[node name="PoutreTransversale59" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.18000, -15.00000)
+mesh = SubResource("mesh13")
+material_override = SubResource("mat_frame")
+
+
+[node name="InsertMetal60" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.41500, -15.00000)
+mesh = SubResource("mesh14")
+material_override = SubResource("mat_trim")
+
+
+[node name="Renfort61" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.55000, -15.00000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, -0.28000)
+
+
+[node name="RepereSecurite62" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.74000, -15.00000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="Renfort63" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.55000, -15.00000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, 0.28000)
+
+
+[node name="RepereSecurite64" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.74000, -15.00000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="PoutreTransversale65" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.18000, -7.50000)
+mesh = SubResource("mesh13")
+material_override = SubResource("mat_frame")
+
+
+[node name="InsertMetal66" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.41500, -7.50000)
+mesh = SubResource("mesh14")
+material_override = SubResource("mat_trim")
+
+
+[node name="Renfort67" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.55000, -7.50000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, -0.28000)
+
+
+[node name="RepereSecurite68" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.74000, -7.50000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="Renfort69" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.55000, -7.50000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, 0.28000)
+
+
+[node name="RepereSecurite70" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.74000, -7.50000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="PoutreTransversale71" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.18000, 0.00000)
+mesh = SubResource("mesh13")
+material_override = SubResource("mat_frame")
+
+
+[node name="InsertMetal72" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.41500, 0.00000)
+mesh = SubResource("mesh14")
+material_override = SubResource("mat_trim")
+
+
+[node name="Renfort73" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.55000, 0.00000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, -0.28000)
+
+
+[node name="RepereSecurite74" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.74000, 0.00000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="Renfort75" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.55000, 0.00000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, 0.28000)
+
+
+[node name="RepereSecurite76" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.74000, 0.00000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="PoutreTransversale77" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.18000, 7.50000)
+mesh = SubResource("mesh13")
+material_override = SubResource("mat_frame")
+
+
+[node name="InsertMetal78" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.41500, 7.50000)
+mesh = SubResource("mesh14")
+material_override = SubResource("mat_trim")
+
+
+[node name="Renfort79" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.55000, 7.50000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, -0.28000)
+
+
+[node name="RepereSecurite80" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.74000, 7.50000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="Renfort81" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.55000, 7.50000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, 0.28000)
+
+
+[node name="RepereSecurite82" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.74000, 7.50000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="PoutreTransversale83" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.18000, 15.00000)
+mesh = SubResource("mesh13")
+material_override = SubResource("mat_frame")
+
+
+[node name="InsertMetal84" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(0.00000, -0.41500, 15.00000)
+mesh = SubResource("mesh14")
+material_override = SubResource("mat_trim")
+
+
+[node name="Renfort85" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.55000, 15.00000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, -0.28000)
+
+
+[node name="RepereSecurite86" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-14.00000, -0.74000, 15.00000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="Renfort87" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.55000, 15.00000)
+mesh = SubResource("mesh15")
+material_override = SubResource("mat_ceramic")
+rotation = Vector3(0.00000, 0.00000, 0.28000)
+
+
+[node name="RepereSecurite88" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(14.00000, -0.74000, 15.00000)
+mesh = SubResource("mesh16")
+material_override = SubResource("mat_orange")
+
+
+[node name="LuminaireSocle89" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, -0.28000, -18.00000)
+mesh = SubResource("mesh17")
+material_override = SubResource("mat_frame")
+
+
+[node name="LuminaireDiffusant90" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, -0.42500, -18.00000)
+mesh = SubResource("mesh18")
+material_override = SubResource("mat_white")
+cast_shadow = 0
+
+
+[node name="Lumiere_0_0" type="OmniLight3D" parent="StandHelix" groups=["ceiling_lights"]]
+position = Vector3(-16.50000, -1.10000, -18.00000)
+light_color = Color(0.64, 0.80, 1, 1)
+light_energy = 2.1
+omni_range = 18.0
+light_bake_mode = 0
+
+[node name="LuminaireSocle91" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, -0.28000, -18.00000)
+mesh = SubResource("mesh17")
+material_override = SubResource("mat_frame")
+
+
+[node name="LuminaireDiffusant92" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, -0.42500, -18.00000)
+mesh = SubResource("mesh18")
+material_override = SubResource("mat_white")
+cast_shadow = 0
+
+
+[node name="Lumiere_0_2" type="OmniLight3D" parent="StandHelix" groups=["ceiling_lights"]]
+position = Vector3(16.50000, -1.10000, -18.00000)
+light_color = Color(0.64, 0.80, 1, 1)
+light_energy = 2.1
+omni_range = 18.0
+light_bake_mode = 0
+
+[node name="LuminaireSocle93" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, -0.28000, -6.00000)
+mesh = SubResource("mesh17")
+material_override = SubResource("mat_frame")
+
+
+[node name="LuminaireDiffusant94" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, -0.42500, -6.00000)
+mesh = SubResource("mesh18")
+material_override = SubResource("mat_white")
+cast_shadow = 0
+
+
+[node name="Lumiere_1_0" type="OmniLight3D" parent="StandHelix" groups=["ceiling_lights"]]
+position = Vector3(-16.50000, -1.10000, -6.00000)
+light_color = Color(0.64, 0.80, 1, 1)
+light_energy = 2.1
+omni_range = 18.0
+light_bake_mode = 0
+
+[node name="LuminaireSocle95" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, -0.28000, -6.00000)
+mesh = SubResource("mesh17")
+material_override = SubResource("mat_frame")
+
+
+[node name="LuminaireDiffusant96" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, -0.42500, -6.00000)
+mesh = SubResource("mesh18")
+material_override = SubResource("mat_white")
+cast_shadow = 0
+
+
+[node name="Lumiere_1_2" type="OmniLight3D" parent="StandHelix" groups=["ceiling_lights"]]
+position = Vector3(16.50000, -1.10000, -6.00000)
+light_color = Color(0.64, 0.80, 1, 1)
+light_energy = 2.1
+omni_range = 18.0
+light_bake_mode = 0
+
+[node name="LuminaireSocle97" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, -0.28000, 6.00000)
+mesh = SubResource("mesh17")
+material_override = SubResource("mat_frame")
+
+
+[node name="LuminaireDiffusant98" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, -0.42500, 6.00000)
+mesh = SubResource("mesh18")
+material_override = SubResource("mat_white")
+cast_shadow = 0
+
+
+[node name="Lumiere_2_0" type="OmniLight3D" parent="StandHelix" groups=["ceiling_lights"]]
+position = Vector3(-16.50000, -1.10000, 6.00000)
+light_color = Color(0.64, 0.80, 1, 1)
+light_energy = 2.1
+omni_range = 18.0
+light_bake_mode = 0
+
+[node name="LuminaireSocle99" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, -0.28000, 6.00000)
+mesh = SubResource("mesh17")
+material_override = SubResource("mat_frame")
+
+
+[node name="LuminaireDiffusant100" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, -0.42500, 6.00000)
+mesh = SubResource("mesh18")
+material_override = SubResource("mat_white")
+cast_shadow = 0
+
+
+[node name="Lumiere_2_2" type="OmniLight3D" parent="StandHelix" groups=["ceiling_lights"]]
+position = Vector3(16.50000, -1.10000, 6.00000)
+light_color = Color(0.64, 0.80, 1, 1)
+light_energy = 2.1
+omni_range = 18.0
+light_bake_mode = 0
+
+[node name="LuminaireSocle101" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, -0.28000, 18.00000)
+mesh = SubResource("mesh17")
+material_override = SubResource("mat_frame")
+
+
+[node name="LuminaireDiffusant102" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-16.50000, -0.42500, 18.00000)
+mesh = SubResource("mesh18")
+material_override = SubResource("mat_white")
+cast_shadow = 0
+
+
+[node name="Lumiere_3_0" type="OmniLight3D" parent="StandHelix" groups=["ceiling_lights"]]
+position = Vector3(-16.50000, -1.10000, 18.00000)
+light_color = Color(0.64, 0.80, 1, 1)
+light_energy = 2.1
+omni_range = 18.0
+light_bake_mode = 0
+
+[node name="LuminaireSocle103" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, -0.28000, 18.00000)
+mesh = SubResource("mesh17")
+material_override = SubResource("mat_frame")
+
+
+[node name="LuminaireDiffusant104" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(16.50000, -0.42500, 18.00000)
+mesh = SubResource("mesh18")
+material_override = SubResource("mat_white")
+cast_shadow = 0
+
+
+[node name="Lumiere_3_2" type="OmniLight3D" parent="StandHelix" groups=["ceiling_lights"]]
+position = Vector3(16.50000, -1.10000, 18.00000)
+light_color = Color(0.64, 0.80, 1, 1)
+light_energy = 2.1
+omni_range = 18.0
+light_bake_mode = 0
+
+[node name="RampeAmbre105" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-7.28000, -0.18000, -19.50000)
+mesh = SubResource("mesh19")
+material_override = SubResource("mat_amber")
+cast_shadow = 0
+
+
+[node name="RampeAmbre106" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(7.28000, -0.18000, -19.50000)
+mesh = SubResource("mesh19")
+material_override = SubResource("mat_amber")
+cast_shadow = 0
+
+
+[node name="RampeAmbre107" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(-7.28000, -0.18000, 19.50000)
+mesh = SubResource("mesh19")
+material_override = SubResource("mat_amber")
+cast_shadow = 0
+
+
+[node name="RampeAmbre108" type="MeshInstance3D" parent="StandHelix"]
+position = Vector3(7.28000, -0.18000, 19.50000)
+mesh = SubResource("mesh19")
+material_override = SubResource("mat_amber")
+cast_shadow = 0
+

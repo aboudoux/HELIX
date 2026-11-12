@@ -1,0 +1,61 @@
+{
+  "drone_rotor": {
+    "seconds": 4.0,
+    "sample_rate": 48000,
+    "peak_dbfs": -1.94,
+    "rms_dbfs": -11.92,
+    "loop": true,
+    "wrap_step": 0.009486
+  },
+  "boss_rotor": {
+    "seconds": 4.0,
+    "sample_rate": 48000,
+    "peak_dbfs": -1.94,
+    "rms_dbfs": -12.73,
+    "loop": true,
+    "wrap_step": 0.000467
+  },
+  "door_open": {
+    "seconds": 1.5,
+    "sample_rate": 48000,
+    "peak_dbfs": -1.21,
+    "rms_dbfs": -16.17,
+    "loop": false,
+    "latch_seconds": 1.2
+  },
+  "relay_activate": {
+    "seconds": 0.62,
+    "sample_rate": 48000,
+    "peak_dbfs": -3.1,
+    "rms_dbfs": -13.96,
+    "loop": false
+  },
+  "interaction_denied": {
+    "seconds": 0.24,
+    "sample_rate": 48000,
+    "peak_dbfs": -6.94,
+    "rms_dbfs": -14.61,
+    "loop": false
+  },
+  "repair_pickup": {
+    "seconds": 0.48,
+    "sample_rate": 48000,
+    "peak_dbfs": -4.44,
+    "rms_dbfs": -16.57,
+    "loop": false
+  },
+  "drone_crash": {
+    "seconds": 0.85,
+    "sample_rate": 48000,
+    "peak_dbfs": -1.94,
+    "rms_dbfs": -25.38,
+    "loop": false
+  },
+  "boss_crash": {
+    "seconds": 1.2,
+    "sample_rate": 48000,
+    "peak_dbfs": -1.41,
+    "rms_dbfs": -25.58,
+    "loop": false
+  }
+}

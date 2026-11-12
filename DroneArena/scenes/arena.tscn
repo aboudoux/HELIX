@@ -1,0 +1,240 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/target.tscn" id="target"]
+
+[ext_resource type="PackedScene" path="res://scenes/cover.tscn" id="e11"]
+
+[ext_resource type="PackedScene" path="res://scenes/tower.tscn" id="e12"]
+
+
+[ext_resource type="PackedScene" path="res://assets/models/helix_arena.glb" id="blender_visual"]
+
+[ext_resource type="Environment" path="res://environment/space.tres" id="space"]
+
+[ext_resource type="PackedScene" path="res://environment/training_roofs.tscn" id="roof"]
+
+[sub_resource type="BoxShape3D" id="r6"]
+size = Vector3(40, 1, 48)
+
+[sub_resource type="BoxShape3D" id="r131"]
+size = Vector3(1, 7, 49)
+
+[sub_resource type="BoxShape3D" id="r151"]
+size = Vector3(1, 7, 49)
+
+[sub_resource type="BoxShape3D" id="r167"]
+size = Vector3(40, 7, 1)
+
+[sub_resource type="BoxShape3D" id="r180"]
+size = Vector3(40, 7, 1)
+
+[sub_resource type="BoxShape3D" id="r216"]
+size = Vector3(4, 0.35, 2.5)
+
+[sub_resource type="BoxShape3D" id="r220"]
+size = Vector3(4, 0.35, 2.5)
+
+[sub_resource type="BoxShape3D" id="r223"]
+size = Vector3(6, 0.4, 6)
+
+[sub_resource type="CylinderShape3D" id="r225"]
+radius = 1.8
+height = 3.6
+
+[sub_resource type="BoxShape3D" id="r240"]
+size = Vector3(0.4, 4.6, 0.7)
+
+[sub_resource type="BoxShape3D" id="r243"]
+size = Vector3(0.4, 4.6, 0.7)
+
+[node name="Arena" type="Node3D"]
+process_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("space")
+
+[node name="Plafonds" parent="." instance=ExtResource("roof")]
+
+[node name="Soleil" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-1.0, -0.6, 0)
+light_color = Color(0.52, 0.68, 1, 1)
+light_energy = 0.65
+shadow_enabled = true
+directional_shadow_max_distance = 100.0
+
+[node name="Sol" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.5, 0)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sol"]
+shape = SubResource("r6")
+
+[node name="MurOuest" type="StaticBody3D" parent="."]
+position = Vector3(-20, 3.5, 0)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MurOuest"]
+shape = SubResource("r131")
+
+[node name="MurEst" type="StaticBody3D" parent="."]
+position = Vector3(20, 3.5, 0)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MurEst"]
+shape = SubResource("r151")
+
+[node name="MurNord" type="StaticBody3D" parent="."]
+position = Vector3(0, 3.5, -24)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MurNord"]
+shape = SubResource("r167")
+
+[node name="MurSud" type="StaticBody3D" parent="."]
+position = Vector3(0, 3.5, 24)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MurSud"]
+shape = SubResource("r180")
+
+[node name="Obstacle_A01" parent="." instance=ExtResource("e11")]
+position = Vector3(-8, 0, 8)
+
+[node name="Obstacle_A02" parent="." instance=ExtResource("e11")]
+position = Vector3(8, 0, 8)
+
+[node name="Obstacle_B01" parent="." instance=ExtResource("e11")]
+position = Vector3(-9, 0, -4)
+
+[node name="Obstacle_B02" parent="." instance=ExtResource("e11")]
+position = Vector3(9, 0, -4)
+
+[node name="Stockage_C01" parent="." instance=ExtResource("e12")]
+position = Vector3(-13, 0, -15)
+
+[node name="Stockage_C02" parent="." instance=ExtResource("e12")]
+position = Vector3(13, 0, -15)
+
+[node name="Marche_-8" type="StaticBody3D" parent="."]
+position = Vector3(-8, 0.175, 16)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marche_-8"]
+shape = SubResource("r216")
+
+[node name="Marche_8" type="StaticBody3D" parent="."]
+position = Vector3(8, 0.175, 16)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marche_8"]
+shape = SubResource("r220")
+
+[node name="SocleReacteur" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.2, -7)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SocleReacteur"]
+shape = SubResource("r223")
+
+[node name="Reacteur" type="StaticBody3D" parent="."]
+position = Vector3(0, 2.2, -7)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Reacteur"]
+shape = SubResource("r225")
+
+[node name="Pilier_-3.2" type="StaticBody3D" parent="."]
+position = Vector3(-3.2, 2.3, -7)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilier_-3.2"]
+shape = SubResource("r240")
+
+[node name="Pilier_3.2" type="StaticBody3D" parent="."]
+position = Vector3(3.2, 2.3, -7)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pilier_3.2"]
+shape = SubResource("r243")
+
+[node name="LueurReacteur" type="OmniLight3D" parent="."]
+position = Vector3(0, 4.4, -7)
+light_color = Color(0.15, 0.83, 1, 1)
+light_energy = 4.0
+omni_range = 9.0
+
+[node name="EnseigneHELIX" type="Label3D" parent="."]
+position = Vector3(0, 5.7, -23.1)
+text = "H E L I X"
+font_size = 110
+pixel_size = 0.012
+modulate = Color(0.78, 0.89, 0.9, 1)
+outline_size = 4
+no_depth_test = false
+
+[node name="Zone" type="Label3D" parent="."]
+position = Vector3(0, 4.9, -23.05)
+text = "SECTEUR 07  /  CENTRE D’ESSAI"
+font_size = 45
+pixel_size = 0.009
+modulate = Color(0.24, 0.85, 0.88, 1)
+outline_size = 4
+no_depth_test = false
+
+[node name="PorteNumero" type="Label3D" parent="."]
+position = Vector3(0, 2.15, -22.98)
+text = "07"
+font_size = 180
+pixel_size = 0.012
+modulate = Color(0.47, 0.58, 0.59, 1)
+outline_size = 4
+no_depth_test = false
+
+[node name="Ouest" type="Label3D" parent="."]
+position = Vector3(-19.38, 4.6, 5)
+text = "A  /  MOBILITÉ"
+font_size = 70
+pixel_size = 0.012
+modulate = Color(0.65, 0.85, 0.9, 1)
+outline_size = 4
+no_depth_test = false
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Est" type="Label3D" parent="."]
+position = Vector3(19.38, 4.6, 5)
+text = "B  /  EXPLORATION"
+font_size = 70
+pixel_size = 0.012
+modulate = Color(0.65, 0.85, 0.9, 1)
+outline_size = 4
+no_depth_test = false
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="Cible01" parent="." instance=ExtResource("target")]
+position = Vector3(-5, 0, 5)
+target_name = "CIBLE 01"
+
+[node name="Cible02" parent="." instance=ExtResource("target")]
+position = Vector3(5, 0, 5)
+target_name = "CIBLE 02"
+
+[node name="Cible03" parent="." instance=ExtResource("target")]
+position = Vector3(-12, 0, -10)
+target_name = "CIBLE 03"
+
+[node name="Cible04" parent="." instance=ExtResource("target")]
+position = Vector3(12, 0, -10)
+target_name = "CIBLE 04"
+
+[node name="VisualModel" parent="." instance=ExtResource("blender_visual")]

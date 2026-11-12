@@ -1,0 +1,10 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://dciebdc51lgmx"]
+
+[sub_resource type="AudioEffectHardLimiter" id="limiter"]
+resource_name = "Marge du mix de combat"
+ceiling_db = -1.0
+release = 0.06
+
+[resource]
+bus/0/effect/0/effect = SubResource("limiter")
+bus/0/effect/0/enabled = true

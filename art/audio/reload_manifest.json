@@ -1,0 +1,16 @@
+{
+  "weapon_reload": {
+    "seconds": 1.8,
+    "sample_rate": 48000,
+    "peak_dbfs": -2.85,
+    "rms_dbfs": -25.02,
+    "loop": false
+  },
+  "weapon_empty": {
+    "seconds": 0.16,
+    "sample_rate": 48000,
+    "peak_dbfs": -8.4,
+    "rms_dbfs": -22.77,
+    "loop": false
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "HELIX H-01",
+  "blender": "4.5.14 LTS",
+  "triangles": 78216,
+  "meshes": 14,
+  "materials": 9,
+  "bounds_godot": [
+    [
+      -0.22491730749607086,
+      -0.4624057710170746,
+      -0.5500000715255737
+    ],
+    [
+      0.21125251054763794,
+      0.2239999920129776,
+      0.4812667965888977
+    ]
+  ],
+  "muzzle_godot": [
+    0,
+    0.025,
+    -0.555
+  ],
+  "forward": "-Z",
+  "units": "meters",
+  "glb": "DroneArena\\assets\\models\\helix_carbine.glb"
+}

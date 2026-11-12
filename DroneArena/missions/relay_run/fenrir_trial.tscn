@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://missions/relay_run/mission.tscn" id="mission"]
+
+[node name="FenrirTrial" instance=ExtResource("mission")]
+alpha_trial = true

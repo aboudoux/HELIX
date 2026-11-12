@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="e1"]
+[ext_resource type="PackedScene" path="res://assets/models/helix_carbine.glb" id="visual_model"]
+[ext_resource type="Material" path="res://materials/WhiteLight.tres" id="e11"]
+[ext_resource type="AudioStream" path="res://audio/rifle.tres" id="e12"]
+[ext_resource type="AudioStream" path="res://audio/hit.wav" id="e13"]
+[ext_resource type="AudioStream" path="res://audio/weapon_reload.wav" id="reload"]
+[ext_resource type="AudioStream" path="res://audio/weapon_empty.wav" id="empty"]
+
+[sub_resource type="SphereMesh" id="flash_mesh"]
+radius = 0.065
+height = 0.13
+radial_segments = 12
+rings = 6
+
+[node name="Weapon" type="Node3D"]
+script = ExtResource("e1")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="VisualModel" parent="Model" instance=ExtResource("visual_model")]
+
+[node name="SightReference" type="Marker3D" parent="Model"]
+position = Vector3(0.0, 0.188, 0.063)
+
+[node name="Muzzle" type="Marker3D" parent="Model"]
+position = Vector3(0.0, 0.025, -0.555)
+
+[node name="Flash" type="MeshInstance3D" parent="Model/Muzzle"]
+position = Vector3(0.0, 0.0, -0.03)
+mesh = SubResource("flash_mesh")
+material_override = ExtResource("e11")
+cast_shadow = 0
+visible = false
+
+[node name="Light" type="OmniLight3D" parent="Model/Muzzle"]
+visible = false
+light_color = Color(0.25, 0.85, 1, 1)
+light_energy = 2.0
+omni_range = 2.5
+shadow_enabled = false
+
+[node name="ShotSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("e12")
+volume_db = -12.0
+max_polyphony = 4
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("e13")
+volume_db = -22.0
+max_polyphony = 3
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("reload")
+volume_db = -12.0
+
+[node name="EmptySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("empty")
+volume_db = -18.0

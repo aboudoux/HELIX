@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="e1"]
+[ext_resource type="PackedScene" path="res://scenes/weapon.tscn" id="weapon"]
+[ext_resource type="AudioStream" path="res://audio/hurt.wav" id="hurt"]
+
+[sub_resource type="CapsuleShape3D" id="r2"]
+radius = 0.32
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+process_mode = 1
+collision_layer = 2
+collision_mask = 1
+floor_snap_length = 0.25
+script = ExtResource("e1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.9, 0)
+shape = SubResource("r2")
+
+[node name="Head" type="Node3D" parent="."]
+position = Vector3(0, 1.65, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+current = true
+fov = 78.0
+near = 0.05
+far = 250.0
+
+[node name="Weapon" parent="Head/Camera3D" instance=ExtResource("weapon")]
+position = Vector3(0.28, -0.24, -0.5)
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("hurt")
+volume_db = -13.0

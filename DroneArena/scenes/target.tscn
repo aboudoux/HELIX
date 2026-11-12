@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/target.gd" id="e1"]
+[ext_resource type="PackedScene" path="res://assets/models/helix_target_base.glb" id="base_visual"]
+[ext_resource type="PackedScene" path="res://assets/models/helix_target_plate.glb" id="plate_visual"]
+
+[sub_resource type="CylinderShape3D" id="r8"]
+radius = 0.65
+height = 0.16
+
+[node name="TrainingTarget" type="StaticBody3D" groups=["training_targets"]]
+collision_layer = 5
+collision_mask = 2
+script = ExtResource("e1")
+
+[node name="Plate" type="Node3D" parent="."]
+position = Vector3(0.0, 1.0, 0.0)
+
+[node name="HitShape" type="CollisionShape3D" parent="."]
+position = Vector3(0.0, 1.65, 0.0)
+rotation = Vector3(1.570796, 0.0, 0.0)
+shape = SubResource("r8")
+
+[node name="NameTag" type="Label3D" parent="."]
+position = Vector3(0.0, 2.67, 0.0)
+text = "CIBLE 01"
+font_size = 38
+pixel_size = 0.007
+modulate = Color(0.35, 0.9, 0.95, 1)
+outline_size = 3
+
+[node name="Status" type="Label3D" parent="."]
+position = Vector3(0.0, 2.40, 0.03)
+text = "PRÊT"
+font_size = 30
+pixel_size = 0.006
+modulate = Color(0.35, 0.9, 0.95, 1)
+outline_size = 3
+
+[node name="BaseVisual" parent="." instance=ExtResource("base_visual")]
+
+[node name="PlateVisual" parent="Plate" instance=ExtResource("plate_visual")]

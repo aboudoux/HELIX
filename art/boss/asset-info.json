@@ -1,0 +1,29 @@
+{
+  "name": "HELIX M-90 CERBERE",
+  "blender": "4.5.14 LTS",
+  "triangles": 53172,
+  "meshes": 67,
+  "editable_pieces": 311,
+  "bounds_blender": [
+    [
+      -3.049999952316284,
+      -2.2699999809265137,
+      -1.0200001001358032
+    ],
+    [
+      3.049999952316284,
+      2.6530001163482666,
+      1.6899793148040771
+    ]
+  ],
+  "game_forward": "-Z",
+  "glb": "DroneArena\\assets\\models\\helix_boss.glb",
+  "animated_pivots": [
+    "Rotors/Rotor0/Blades0",
+    "Rotors/Rotor1/Blades1",
+    "Rotors/Rotor2/Blades2",
+    "Rotors/Rotor3/Blades3",
+    "Guns/Left/LeftBarrels",
+    "Guns/Right/RightBarrels"
+  ]
+}

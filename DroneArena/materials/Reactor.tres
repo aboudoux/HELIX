@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Reactor"
+albedo_color = Color(0.15, 0.22, 0.27, 1)
+metallic = 0.8
+roughness = 0.25

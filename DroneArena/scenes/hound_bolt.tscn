@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/enemy_bolt.tscn" id="base"]
+[ext_resource type="Material" path="res://materials/HoundLaser.tres" id="laser"]
+
+[node name="HoundLaser" instance=ExtResource("base")]
+pulse_length = 1.4
+
+[node name="Trail" parent="." index="1"]
+material_override = ExtResource("laser")
+
+[node name="Light" parent="." index="2"]
+light_color = Color(1, 0.04, 0.4, 1)

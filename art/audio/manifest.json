@@ -1,0 +1,67 @@
+{
+  "author": "HELIX / sons originaux synthétisés pour ce projet",
+  "sample_rate": 48000,
+  "format": "PCM 16 bits mono",
+  "sounds": [
+    {
+      "file": "shot.wav",
+      "seconds": 0.43,
+      "peak_dbfs": -1.11,
+      "rms_dbfs": -16.2
+    },
+    {
+      "file": "shot_02.wav",
+      "seconds": 0.43,
+      "peak_dbfs": -1.11,
+      "rms_dbfs": -16.54
+    },
+    {
+      "file": "shot_03.wav",
+      "seconds": 0.43,
+      "peak_dbfs": -1.11,
+      "rms_dbfs": -16.33
+    },
+    {
+      "file": "enemy_shot.wav",
+      "seconds": 0.36,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -16.16
+    },
+    {
+      "file": "enemy_shot_02.wav",
+      "seconds": 0.36,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -16.28
+    },
+    {
+      "file": "drone_impact_01.wav",
+      "seconds": 0.4,
+      "peak_dbfs": -1.94,
+      "rms_dbfs": -20.42
+    },
+    {
+      "file": "drone_impact_02.wav",
+      "seconds": 0.4,
+      "peak_dbfs": -1.94,
+      "rms_dbfs": -20.54
+    },
+    {
+      "file": "drone_impact_03.wav",
+      "seconds": 0.4,
+      "peak_dbfs": -1.94,
+      "rms_dbfs": -19.81
+    },
+    {
+      "file": "drone_destroyed.wav",
+      "seconds": 0.95,
+      "peak_dbfs": -1.41,
+      "rms_dbfs": -14.52
+    },
+    {
+      "file": "hit.wav",
+      "seconds": 0.095,
+      "peak_dbfs": -8.87,
+      "rms_dbfs": -27.26
+    }
+  ]
+}
