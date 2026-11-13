@@ -39,7 +39,25 @@ var ammo: int = 0
 var is_reloading: bool = false
 var reload_remaining: float = 0.0
 var reload_ready: bool = true
+var reload_requested: bool = false
 var empty_ready: bool = true
+var reserve_ammo: int = -1
+var automatic: bool = true
+var pellets: int = 1
+var spread: float = 0.0
+var reload_visual: Node3D
+var recoil_multiplier := 1.0
+var world_muzzle: Node3D
+var body_origin: Node3D
+var recoil_strength := 1.0
+var campaign_effects := false
+var fire_action: StringName = &"fire"
+var aim_allowed := true
+var reload_managed := false
+var hand_busy := false
+var tool_blocked := false
+var damage_per_hit := 1
+const FEEDBACK := preload("res://missions/lunar_escape/combat_feedback.gd")
 
 
 func _ready() -> void:
@@ -49,7 +67,7 @@ func _ready() -> void:
 
 
 func wants_to_aim() -> bool:
-	return enabled and not is_reloading and aim_ready and Input.is_action_pressed("aim")
+	return not tool_blocked and aim_allowed and enabled and not is_reloading and aim_ready and Input.is_action_pressed("aim")
 
 
 func look_multiplier() -> float:
@@ -74,8 +92,9 @@ func update_aim(delta: float) -> void:
 
 func set_enabled(value: bool) -> void:
 	enabled = value
+	reload_requested = false
 	# Le clic sur Reprendre ne doit jamais déclencher un tir dans l'arène.
-	trigger_ready = not Input.is_action_pressed("fire")
+	trigger_ready = not Input.is_action_pressed(fire_action)
 	# Après le menu ou une pause, relâcher le clic droit avant de viser à nouveau.
 	aim_ready = not Input.is_action_pressed("aim")
 	reload_ready = not Input.is_action_pressed("reload")
@@ -91,35 +110,51 @@ func set_enabled(value: bool) -> void:
 	# Garder leur état permet de reprendre exactement au même point.
 
 
+func _input(event: InputEvent) -> void:
+	if enabled and not tool_blocked and not reload_managed and reload_ready and event.is_action_pressed("reload"):
+		reload_requested = true
+
+
 func _physics_process(delta: float) -> void:
 	cooldown = maxf(cooldown - delta, 0.0)
-	if not enabled:
+	if not enabled or tool_blocked:
 		return
-	if not Input.is_action_pressed("fire"):
+	if not Input.is_action_pressed(fire_action):
 		trigger_ready = true
 		empty_ready = true
 	if not Input.is_action_pressed("reload"):
 		reload_ready = true
-	if reload_ready and Input.is_action_just_pressed("reload"):
+	if not reload_managed and (reload_requested or (reload_ready and Input.is_action_just_pressed("reload"))):
+		reload_requested = false
 		start_reload()
 	if is_reloading:
 		reload_remaining = maxf(reload_remaining - delta, 0.0)
 		if reload_remaining <= 0.0:
-			ammo = magazine_capacity
+			var rounds := magazine_capacity - ammo
+			if reserve_ammo >= 0:
+				rounds = mini(rounds, reserve_ammo)
+				reserve_ammo -= rounds
+			ammo += rounds
 			is_reloading = false
 		update_aim(delta)
 		return
 	update_aim(delta)
-	if Input.is_action_pressed("fire") and trigger_ready and cooldown <= 0.0:
+	if Input.is_action_pressed(fire_action) and trigger_ready and cooldown <= 0.0:
 		fire()
 
 
 func _process(delta: float) -> void:
 	recoil = move_toward(recoil, 0.0, delta * 6.5)
-	var kick := recoil*lerpf(1.0,.3,aim_blend)
+	var kick := recoil*lerpf(1.0,.3,aim_blend)*recoil_multiplier
 	var pose := reload_pose()
-	model.position = Vector3(-pose*.12, kick*.025-pose*.075, kick*.085+pose*.08)
-	model.rotation = Vector3(kick*.07-pose*.15, pose*.22, pose*.48)
+	if is_instance_valid(reload_visual):
+		var progress := 1.0 - reload_remaining / reload_duration if is_reloading else 0.0
+		model.transform = reload_visual.animate_view(delta,camera,camera.get_parent().get_parent(),aim_blend,pose,kick)
+		reload_visual.pose_reload(progress, recoil)
+		if reload_visual.has_method("align_forearms"): reload_visual.align_forearms(camera)
+	else:
+		model.position = Vector3(-pose*.12, kick*.025-pose*.075, kick*.085+pose*.08)
+		model.rotation = Vector3(kick*.07-pose*.15, pose*.22, pose*.48)
 	flash_time = maxf(flash_time - delta, 0.0)
 	flash.visible = flash_time > 0.0
 	muzzle_light.visible = flash_time > 0.0
@@ -127,7 +162,7 @@ func _process(delta: float) -> void:
 
 func fire() -> void:
 	# Appelé uniquement durant la physique : aucun accès au monde verrouillé.
-	if not enabled or get_tree().paused or cooldown > 0.0 or is_reloading:
+	if not enabled or tool_blocked or get_tree().paused or cooldown > 0.0 or is_reloading or hand_busy:
 		return
 	if ammo <= 0:
 		# Un clic à vide par pression, même en maintenant le bouton gauche.
@@ -138,38 +173,25 @@ func fire() -> void:
 	cooldown = fire_interval
 	ammo -= 1
 	shots_fired += 1
-	var start := camera.global_position
-	var aim := start - camera.global_basis.z * max_range
-	var space := get_world_3d().direct_space_state
-	var query := PhysicsRayQueryParameters3D.create(start, aim, 13)
-	query.hit_from_inside = true
-	last_hit = space.intersect_ray(query)
-	if not last_hit.is_empty():
-		aim = last_hit.position
-	# Prolonger légèrement le segment évite de manquer la surface visée.
-	var muzzle_start := muzzle.global_position
-	# Vérifier aussi l'espace jusqu'au canon : il peut dépasser derrière une paroi.
-	query = PhysicsRayQueryParameters3D.create(start, muzzle_start, 13)
-	query.hit_from_inside = true
-	var obstruction := space.intersect_ray(query)
-	if obstruction.is_empty():
-		query = PhysicsRayQueryParameters3D.create(muzzle_start, aim + (aim - muzzle_start).normalized() * 0.02, 13)
-		query.hit_from_inside = true
-		obstruction = space.intersect_ray(query)
-	if not obstruction.is_empty():
-		last_hit = obstruction
-		aim = obstruction.position
+	if not automatic:
+		trigger_ready = false
 	var target_hit := false
-	if not last_hit.is_empty():
-		var collider: Object = last_hit.collider
-		if collider.has_method("receive_hit_at"):
-			target_hit = collider.receive_hit_at(aim,last_hit.normal,(aim-start).normalized())
-		elif collider.has_method("receive_hit"):
-			target_hit = collider.receive_hit()
-		if not collider.has_method("receive_hit_at"):
-			spawn_effect(aim + last_hit.normal * 0.012, aim, false, target_hit)
-	spawn_effect(muzzle_start, aim, true, target_hit)
-	recoil = 1.0
+	var end := Vector3.ZERO
+	for pellet in range(pellets):
+		var direction := -camera.global_basis.z
+		if pellet > 0:
+			var angle := TAU * (pellet - 1) / (pellets - 1)
+			direction += spread * (camera.global_basis.x * cos(angle) + camera.global_basis.y * sin(angle))
+		var result := trace_shot(direction.normalized())
+		if pellet == 0:
+			end = result.position
+			last_hit = result.hit
+		target_hit = target_hit or result.target_hit
+	recoil = recoil_strength
+	if campaign_effects:
+		FEEDBACK.eject(self, is_instance_valid(world_muzzle))
+	if is_instance_valid(reload_visual):
+		reload_visual.fired()
 	flash_time = 0.045
 	flash.show()
 	muzzle_light.show()
@@ -177,11 +199,49 @@ func fire() -> void:
 	shot_sound.play()
 	if target_hit:
 		hit_sound.play()
-	fired.emit(aim, target_hit)
+	fired.emit(end, target_hit)
+
+
+func trace_shot(direction: Vector3) -> Dictionary:
+	var start := camera.global_position
+	var aim := start + direction * max_range
+	var space := get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(start, aim, 13)
+	query.hit_from_inside = true
+	var hit := space.intersect_ray(query)
+	if not hit.is_empty():
+		aim = hit.position
+	# Prolonger légèrement le segment évite de manquer la surface visée.
+	var muzzle_start := world_muzzle.global_position if is_instance_valid(world_muzzle) else muzzle.global_position
+	# Vérifier aussi l'espace jusqu'au canon : il peut dépasser derrière une paroi.
+	query = PhysicsRayQueryParameters3D.create(body_origin.global_position if is_instance_valid(body_origin) else start, muzzle_start, 13)
+	query.hit_from_inside = true
+	var obstruction := space.intersect_ray(query)
+	if obstruction.is_empty():
+		query = PhysicsRayQueryParameters3D.create(muzzle_start, aim + (aim - muzzle_start).normalized() * 0.02, 13)
+		query.hit_from_inside = true
+		obstruction = space.intersect_ray(query)
+	if not obstruction.is_empty():
+		hit = obstruction
+		aim = obstruction.position
+	var target_hit := false
+	if not hit.is_empty():
+		var collider: Object = hit.collider
+		if collider.has_method("receive_hit_at"):
+			target_hit = collider.receive_hit_at(aim,hit.normal,(aim-start).normalized(),damage_per_hit)
+		elif collider.has_method("receive_hit"):
+			target_hit = collider.receive_hit()
+		if not collider.has_method("receive_hit_at"):
+			if campaign_effects:
+				FEEDBACK.impact(self,hit)
+			else:
+				spawn_effect(aim + hit.normal * 0.012, aim, false, target_hit)
+	spawn_effect(muzzle_start, aim, true, target_hit)
+	return {"position": aim, "hit": hit, "target_hit": target_hit}
 
 
 func start_reload() -> bool:
-	if not enabled or get_tree().paused or is_reloading or ammo >= magazine_capacity:
+	if not enabled or tool_blocked or get_tree().paused or is_reloading or ammo >= magazine_capacity or reserve_ammo == 0:
 		return false
 	is_reloading = true
 	reload_remaining = reload_duration
@@ -205,6 +265,7 @@ func reload_pose() -> float:
 
 func cancel_reload() -> void:
 	is_reloading = false
+	reload_requested = false
 	reload_remaining = 0.0
 	reload_sound.stop()
 	model.transform = Transform3D.IDENTITY

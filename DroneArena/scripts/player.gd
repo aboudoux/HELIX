@@ -47,13 +47,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotation.x = clampf(head.rotation.x - event.relative.y * sensitivity, deg_to_rad(-85), deg_to_rad(85))
 
 
+func movement_gravity() -> Vector3:
+	return get_gravity()
+
+
 func _physics_process(delta: float) -> void:
 	hurt_cooldown = maxf(0.0, hurt_cooldown - delta)
 	if health <= 0:
 		return
 	update_posture(delta)
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += movement_gravity() * delta
 	elif Input.is_action_just_pressed("jump") and not is_crouching:
 		velocity.y = jump_speed
 

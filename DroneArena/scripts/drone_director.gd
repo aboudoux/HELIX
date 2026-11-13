@@ -9,11 +9,13 @@ const FLIGHT_HEIGHT: float = 2.4
 @export var flight_height: float = 2.4
 @export var ground_radius: float = 1.5
 @export var ground_height: float = 1.75
+@export var navigation_region := Rect2i(-19, -23, 39, 47)
 var grid := AStarGrid2D.new()
 var navigation_ready: bool = false
 var ground_navigation := preload("res://scripts/ground_navigation.gd").new()
 var projectile_damage: int = 10
 var projectile_speed: float = 16.0
+var hound_damage_scale: float = 0.6
 @onready var player: CharacterBody3D = get_parent().get_node("Player")
 
 
@@ -24,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 
 func build_flight_map() -> void:
 	ground_navigation.ready = false
-	grid.region = Rect2i(-19, -23, 39, 47)
+	grid.region = navigation_region
 	grid.cell_size = Vector2.ONE
 	grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
 	grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_OCTILE
@@ -37,15 +39,17 @@ func build_flight_map() -> void:
 	query.shape = shape
 	query.collision_mask = 1
 	var space := get_world_3d().direct_space_state
-	for x in range(-19, 20):
-		for z in range(-23, 24):
+	for x in range(grid.region.position.x, grid.region.end.x):
+		for z in range(grid.region.position.y, grid.region.end.y):
 			query.transform = Transform3D(Basis.IDENTITY, Vector3(x, flight_height, z))
 			grid.set_point_solid(Vector2i(x, z), not space.intersect_shape(query, 1).is_empty())
 	navigation_ready = true
 
 
 func nearest_cell(point: Vector3) -> Vector2i:
-	var cell := Vector2i(clampi(roundi(point.x), -19, 19), clampi(roundi(point.z), -23, 23))
+	var first := grid.region.position
+	var last := grid.region.end - Vector2i.ONE
+	var cell := Vector2i(clampi(roundi(point.x), first.x, last.x), clampi(roundi(point.z), first.y, last.y))
 	if not grid.is_point_solid(cell):
 		return cell
 	var best := cell
@@ -80,6 +84,7 @@ func spawn_bolt(origin: Vector3, direction: Vector3, shooter: RID) -> void:
 	bolt.speed = projectile_speed
 	get_parent().get_node("Projectiles").add_child(bolt)
 	bolt.launch(origin, direction, shooter)
+	report_shot(origin)
 
 
 func ground_path(from: Vector3, to: Vector3) -> PackedVector3Array:
@@ -94,10 +99,17 @@ func report_sighting(source: CharacterBody3D, point: Vector3) -> void:
 
 func spawn_hound_bolt(origin: Vector3, direction: Vector3, shooter: RID) -> void:
 	var bolt := HOUND_BOLT.instantiate()
-	bolt.damage = roundi(projectile_damage*.6)
+	bolt.damage = roundi(projectile_damage * hound_damage_scale)
 	bolt.speed = projectile_speed+4
 	get_parent().get_node("Projectiles").add_child(bolt)
 	bolt.launch(origin,direction,shooter)
+	report_shot(origin)
+
+
+func report_shot(origin: Vector3) -> void:
+	var squad := get_parent().get_node_or_null("EscortSquad")
+	if squad != null:
+		squad.hear_shot(origin, true)
 
 
 func reset_encounter() -> void:

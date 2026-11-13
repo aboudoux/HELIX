@@ -1,0 +1,68 @@
+{
+  "provider": "Microsoft Read Aloud",
+  "voice": "fr-FR-VivienneMultilingualNeural",
+  "language": "fr-FR",
+  "sampleRate": 24000,
+  "renderedAt": "2026-11-13T12:28:55.856Z",
+  "rate": "-2%",
+  "pitch": "+0Hz",
+  "normalization": "-18 LUFS / -2 dBTP",
+  "clips": [
+    {
+      "key": "arrival",
+      "seconds": 4.68,
+      "peak": 0.62725830078125,
+      "rms": 0.11178481956808983,
+      "spoken": "Vous arrivez à Karen. La base n'émet plus aucun signal depuis quarante-huit heures."
+    },
+    {
+      "key": "mission",
+      "seconds": 5.256,
+      "peak": 0.75244140625,
+      "rms": 0.12047364266872572,
+      "spoken": "Retrouvez les survivants et récupérez le journal de bord. Votre équipe attend votre rapport."
+    },
+    {
+      "key": "drone",
+      "seconds": 6.168,
+      "peak": 0.793914794921875,
+      "rms": 0.11303888608364113,
+      "spoken": "Un drone bloque le couloir. Visez avec la souris, tirez avec le clic gauche et rechargez avec la touche R."
+    },
+    {
+      "key": "search",
+      "seconds": 4.824,
+      "peak": 0.61627197265625,
+      "rms": 0.10766570856111106,
+      "spoken": "Le passage est libre. Cherchez le journal de bord dans les quartiers sud-ouest de Karen."
+    },
+    {
+      "key": "log",
+      "seconds": 5.208,
+      "peak": 0.721282958984375,
+      "rms": 0.12212336043670208,
+      "spoken": "Le journal confirme une évacuation vers l'infirmerie. Retrouvez le registre des survivants."
+    },
+    {
+      "key": "survivors",
+      "seconds": 6.912,
+      "peak": 0.650787353515625,
+      "rms": 0.12088528514230319,
+      "spoken": "Des survivants ont rejoint les abris de Tycho. Une mécanicienne nommée Lina est restée dans l'atelier. Retrouvez-la."
+    },
+    {
+      "key": "lina",
+      "seconds": 6.12,
+      "peak": 0.79437255859375,
+      "rms": 0.12465279868176538,
+      "spoken": "Enfin quelqu'un ! Je suis bloquée dans l'atelier de Tycho. Rétablissez le courant et venez me chercher."
+    },
+    {
+      "key": "together",
+      "seconds": 7.704,
+      "peak": 0.757415771484375,
+      "rms": 0.11747272379338423,
+      "spoken": "Merci ! Le journal de Karen est avec vous ? Alors on peut encore les sauver. Je prépare le blindé. On rentre ensemble."
+    }
+  ]
+}

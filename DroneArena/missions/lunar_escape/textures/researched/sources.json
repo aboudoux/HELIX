@@ -1,0 +1,122 @@
+[
+  {
+    "asset": "metal_plate",
+    "map": "Diffuse",
+    "file": "metal_plate_diffuse.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/metal_plate/metal_plate_diff_2k.jpg",
+    "md5": "91b841e7e619e55588f0183a703fb644",
+    "license": "CC0"
+  },
+  {
+    "asset": "metal_plate",
+    "map": "Rough",
+    "file": "metal_plate_rough.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/metal_plate/metal_plate_rough_2k.jpg",
+    "md5": "b2c2bfc0a5e46c1a8bdfddd236daa200",
+    "license": "CC0"
+  },
+  {
+    "asset": "metal_plate",
+    "map": "Displacement",
+    "file": "metal_plate_displacement.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/metal_plate/metal_plate_disp_2k.jpg",
+    "md5": "272c182e76937fa352c55f92e7e565b0",
+    "license": "CC0"
+  },
+  {
+    "asset": "rubber_tiles",
+    "map": "Diffuse",
+    "file": "rubber_tiles_diffuse.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubber_tiles/rubber_tiles_diff_2k.jpg",
+    "md5": "5bfab6657e8b95310d22cb40b81fe42e",
+    "license": "CC0"
+  },
+  {
+    "asset": "rubber_tiles",
+    "map": "Rough",
+    "file": "rubber_tiles_rough.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubber_tiles/rubber_tiles_rough_2k.jpg",
+    "md5": "46aff3216fd140ced87cd1eaf366410e",
+    "license": "CC0"
+  },
+  {
+    "asset": "rubber_tiles",
+    "map": "Displacement",
+    "file": "rubber_tiles_displacement.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rubber_tiles/rubber_tiles_disp_2k.jpg",
+    "md5": "2872fc8a311285ae06f7f1a2db805afb",
+    "license": "CC0"
+  },
+  {
+    "asset": "gravelly_sand",
+    "map": "Diffuse",
+    "file": "gravelly_sand_diffuse.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravelly_sand/gravelly_sand_diff_2k.jpg",
+    "md5": "b90aa766dac59af8c136321149ca86bc",
+    "license": "CC0"
+  },
+  {
+    "asset": "gravelly_sand",
+    "map": "Rough",
+    "file": "gravelly_sand_rough.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravelly_sand/gravelly_sand_rough_2k.jpg",
+    "md5": "ffa5636da8fad6a051030218f2c01a92",
+    "license": "CC0"
+  },
+  {
+    "asset": "gravelly_sand",
+    "map": "Displacement",
+    "file": "gravelly_sand_displacement.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravelly_sand/gravelly_sand_disp_2k.jpg",
+    "md5": "319a4e555e4853d973d1a4d6670b9de6",
+    "license": "CC0"
+  },
+  {
+    "asset": "rusty_metal_04",
+    "map": "Diffuse",
+    "file": "rusty_metal_04_diffuse.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rusty_metal_04/rusty_metal_04_diff_2k.jpg",
+    "md5": "4506564abb3ff16ff7a3dfecf0386ba8",
+    "license": "CC0"
+  },
+  {
+    "asset": "rusty_metal_04",
+    "map": "Rough",
+    "file": "rusty_metal_04_rough.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rusty_metal_04/rusty_metal_04_rough_2k.jpg",
+    "md5": "bf8eb527dd96b3491add04fc07c92455",
+    "license": "CC0"
+  },
+  {
+    "asset": "rusty_metal_04",
+    "map": "Displacement",
+    "file": "rusty_metal_04_displacement.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rusty_metal_04/rusty_metal_04_disp_2k.jpg",
+    "md5": "8b7e92b754ddd5e345cf670c63497d79",
+    "license": "CC0"
+  },
+  {
+    "asset": "dense_sand",
+    "map": "Diffuse",
+    "file": "dense_sand_diffuse.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dense_sand/dense_sand_diff_2k.jpg",
+    "md5": "5855029eadd3f5064b76abe41790fd68",
+    "license": "CC0"
+  },
+  {
+    "asset": "dense_sand",
+    "map": "Rough",
+    "file": "dense_sand_rough.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dense_sand/dense_sand_rough_2k.jpg",
+    "md5": "55fb61579cc704c96a80d24ed5431a25",
+    "license": "CC0"
+  },
+  {
+    "asset": "dense_sand",
+    "map": "Displacement",
+    "file": "dense_sand_displacement.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dense_sand/dense_sand_disp_2k.jpg",
+    "md5": "cfa55f95e9b2321e78f2d549ce7398e4",
+    "license": "CC0"
+  }
+]

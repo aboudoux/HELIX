@@ -201,8 +201,8 @@ func _process(delta: float) -> void:
 	$Hull/EyeLight.light_energy = (1.7 if phase==2 else .8)+sin(elapsed*8)*.2
 
 
-func receive_hit_at(point: Vector3, normal: Vector3, incoming: Vector3) -> bool:
-	var accepted := super.receive_hit_at(point,normal,incoming)
+func receive_hit_at(point: Vector3, normal: Vector3, incoming: Vector3, damage: int = 1) -> bool:
+	var accepted := super.receive_hit_at(point,normal,incoming,damage)
 	if not accepted:
 		return false
 	health_changed.emit(health,max_health)

@@ -1,0 +1,65 @@
+[
+  {
+    "asset": "blue_metal_plate",
+    "map": "Diffuse",
+    "file": "blue_metal_plate_diffuse.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_diff_2k.jpg",
+    "md5": "6189f7c443f0b7767d3e046f021b5495"
+  },
+  {
+    "asset": "blue_metal_plate",
+    "map": "Rough",
+    "file": "blue_metal_plate_rough.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_rough_2k.jpg",
+    "md5": "4be6436df5c7c5ecce9febb927051d52"
+  },
+  {
+    "asset": "blue_metal_plate",
+    "map": "Displacement",
+    "file": "blue_metal_plate_displacement.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_metal_plate/blue_metal_plate_disp_2k.jpg",
+    "md5": "5fbe4f41f0f82de7cdecf1d0d5e75075"
+  },
+  {
+    "asset": "denim_fabric_05",
+    "map": "Diffuse",
+    "file": "denim_fabric_05_diffuse.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/denim_fabric_05/denim_fabric_05_diff_2k.jpg",
+    "md5": "af3eb2807ea3868d1dbed62dc0dc21d6"
+  },
+  {
+    "asset": "denim_fabric_05",
+    "map": "Rough",
+    "file": "denim_fabric_05_rough.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/denim_fabric_05/denim_fabric_05_rough_2k.jpg",
+    "md5": "96308cda93dfa3933d549907fe4cfc1a"
+  },
+  {
+    "asset": "denim_fabric_05",
+    "map": "Displacement",
+    "file": "denim_fabric_05_displacement.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/denim_fabric_05/denim_fabric_05_disp_2k.jpg",
+    "md5": "cf440f7d9573111303c2778685bbecea"
+  },
+  {
+    "asset": "leather_white",
+    "map": "Diffuse",
+    "file": "leather_white_diffuse.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leather_white/leather_white_diff_2k.jpg",
+    "md5": "1292cc2c6b26508dc242a4a12220d4a9"
+  },
+  {
+    "asset": "leather_white",
+    "map": "Rough",
+    "file": "leather_white_rough.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leather_white/leather_white_rough_2k.jpg",
+    "md5": "a7d8b078f1511523d56f88ee6682cc0e"
+  },
+  {
+    "asset": "leather_white",
+    "map": "Displacement",
+    "file": "leather_white_displacement.jpg",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leather_white/leather_white_disp_2k.jpg",
+    "md5": "e29a2e1b84cd387a3ed731fc49f56c01"
+  }
+]

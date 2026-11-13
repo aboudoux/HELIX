@@ -21,6 +21,7 @@ func run() -> void:
 	var left: CharacterBody3D = director.get_child(0)
 	var right: CharacterBody3D = director.get_child(1)
 	for actor in director.get_children():
+		if "--lunar" in OS.get_cmdline_user_args(): actor.campaign_combat = true
 		actor.attack_enabled = false
 		actor.move_speed = 0
 	await frames(5)

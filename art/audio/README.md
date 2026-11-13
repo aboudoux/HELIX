@@ -18,7 +18,9 @@ La carabine combine un claquement très bref, un corps grave, une décharge d'é
 | `hound_charge.wav` | Charge du canon dorsal pendant le verrouillage laser |
 | `hound_laser.wav` | Deux impulsions laser distinctes par rafale du LIMIER K-9 |
 
-Les WAV du jeu sont en PCM mono 16 bits à 48 kHz. Godot applique les variations et les positions 3D à la lecture. La carabine autorise quatre voix simultanées pour que les queues des tirs se superposent en rafale ; les impacts en autorisent trois. Les volumes se règlent dans `scenes/weapon.tscn` et `scenes/drone.tscn`. Le mix principal possède un limiteur à −1 dB dans `default_bus_layout.tres`.
+Les WAV de combat sont en PCM mono 16 bits à 48 kHz. Godot applique les variations et les positions 3D à la lecture. La carabine autorise quatre voix simultanées pour que les queues des tirs se superposent en rafale ; les impacts en autorisent trois. Les volumes se règlent dans `scenes/weapon.tscn` et `scenes/drone.tscn`. Le mix principal possède un limiteur à −1 dB dans `default_bus_layout.tres`.
+
+Le briefing de **Karen** utilise huit répliques originales rendues avec **Microsoft Vivienne Multilingual Neural**, en français de France. Cette voix remplace Kokoro / ff_siwis. Les WAV PCM mono 16 bits / 24 kHz sont lus directement par Godot, sans connexion pour jouer. `powershell -File art/audio/render_briefing.ps1` régénère les répliques via Microsoft Read Aloud et les outils Node.js locaux de `.tools/voice`. Chaque réplique reste continue, à hauteur naturelle et sans effet métallique. Les phrases, durées et niveaux figurent dans `DroneArena/audio/voice/synthesis.json` ; les sources et la procédure dans `DroneArena/audio/voice/README.md`. La voix reste sur le bus principal ; le décor baisse de 5 dB et les sons du joueur de 3 dB pendant les répliques.
 
 `preview_combat.wav` est l'ancien extrait stéréo de combat, enregistré avant le remplacement des explosions par des épaves. `manifest.json` décrit les sons de combat source et leurs niveaux avant les volumes appliqués dans le jeu.
 
@@ -75,5 +77,7 @@ Les niveaux se règlent dans `scenes/drone.tscn`, `scenes/boss.tscn`, `scripts/d
 ```
 
 `tests/verify_mechanical_audio.gd` vérifie les boucles et leurs arrêts, la spatialisation configurée, la vraie touche E, l'ouverture et la collision des portes, les kits, la pause, les redémarrages et le régime du boss. Cette suite peut être lancée en mode sans interface ou avec une fenêtre native.
+
+La campagne lunaire emploie maintenant les tirs enregistrés de Vincent Sevedge (CC BY 3.0), montés avec `node art/audio/prepare_recordings.mjs`, et les pas/impacts de Kenney (CC0). Voir `sources/README.md` et `DroneArena/audio/CREDITS.md` pour les sources, licences et transformations. `design_lunar_combat.mjs` produit encore les sons des robots et le souffle de pressurisation des sas, mais ses anciens tirs synthétiques ne sont plus utilisés par les armes du joueur.
 
 Après l'enregistrement, `python art/audio/verify_mechanical_mix.py` contrôle le panoramique gauche/droite, la présence de chaque action, le silence après arrêt des hélices et la marge du mix. Les mesures sont sauvegardées dans `mechanical_mix_check.json`.

@@ -7,6 +7,7 @@ extends Node3D
 @onready var core: MeshInstance3D = $Core
 @onready var trail: MeshInstance3D = $Trail
 var direction := Vector3.FORWARD
+var source_position := Vector3.ZERO
 var shooter: RID
 var remaining: float = 4.0
 var travelled: float = 0.0
@@ -14,6 +15,7 @@ var travelled: float = 0.0
 
 func launch(origin: Vector3, travel_direction: Vector3, owner_rid: RID) -> void:
 	global_position = origin
+	source_position = origin
 	direction = travel_direction.normalized()
 	shooter = owner_rid
 	travelled = 0.0
@@ -27,11 +29,13 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 		return
 	var next := global_position + direction * speed * delta
-	var query := PhysicsRayQueryParameters3D.create(global_position, next, 11, [shooter])
+	var query := PhysicsRayQueryParameters3D.create(global_position, next, 27, [shooter])
 	query.hit_from_inside = true
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
 	if not hit.is_empty():
-		if hit.collider.has_method("apply_damage"):
+		if hit.collider.has_method("apply_damage_from"):
+			hit.collider.apply_damage_from(damage, source_position)
+		elif hit.collider.has_method("apply_damage"):
 			hit.collider.apply_damage(damage)
 		queue_free()
 	else:

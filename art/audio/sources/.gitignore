@@ -1,0 +1,4 @@
+# Download cache; the edited game's audio and source recordings are kept separately.
+*.zip
+impact/
+gunshots/sounds/mosin.wav

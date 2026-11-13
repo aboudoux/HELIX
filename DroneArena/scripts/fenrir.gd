@@ -54,8 +54,8 @@ func reset_drone() -> void:
 	shots_fired = 0
 
 
-func receive_hit_at(point: Vector3, normal: Vector3, incoming: Vector3) -> bool:
-	var accepted := super.receive_hit_at(point,normal,incoming)
+func receive_hit_at(point: Vector3, normal: Vector3, incoming: Vector3, damage: int = 1) -> bool:
+	var accepted := super.receive_hit_at(point,normal,incoming,damage)
 	if accepted and alive and phase==1 and health<=max_health/2:
 		phase = 2
 		move_speed *= 1.15

@@ -86,7 +86,13 @@ func choose_destination(actor: CharacterBody3D, grounded: bool, radius: float) -
 		start = actor.director.nearest_cell(actor.global_position)
 	var options: Array[Dictionary] = []
 	var preferred := .65*flank_sign
-	for angle in [preferred,-preferred,0.0,1.3*flank_sign,-1.3*flank_sign]:
+	if actor.campaign_combat:
+		# Dogs seek a wider side angle; wounded drones keep their distance.
+		preferred = (1.25 if grounded else 0.85)*flank_sign
+		if not grounded and actor.health*2<actor.max_health:
+			radius += 3.0
+	var wide := 1.7 if actor.campaign_combat else 1.3
+	for angle in [preferred,-preferred,0.0,wide*flank_sign,-wide*flank_sign]:
 		var candidate: Vector3 = target+away.rotated(Vector3.UP,angle)*radius
 		candidate.y = height
 		var cell := Vector2i(roundi(candidate.x),roundi(candidate.z))

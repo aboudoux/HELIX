@@ -1,0 +1,51 @@
+[
+  {
+    "file": "Metal032_2K-JPG_Color.jpg",
+    "sha256": "f444c07a08de291049d0dda880d6fca9faae4b172f293f604c87e5e96ad30370",
+    "asset": "Metal032",
+    "source": "https://ambientcg.com/get?file=Metal032_2K-JPG.zip",
+    "license": "CC0"
+  },
+  {
+    "file": "Metal032_2K-JPG_Displacement.jpg",
+    "sha256": "9df0c2f82662c7e863d17531cbc364f7ea52ad7921f9a547e7357ba29ec2d620",
+    "asset": "Metal032",
+    "source": "https://ambientcg.com/get?file=Metal032_2K-JPG.zip",
+    "license": "CC0"
+  },
+  {
+    "file": "Metal032_2K-JPG_Metalness.jpg",
+    "sha256": "b65d6b9091747bd81ee58adedcb6209d8ee21b2bde9298d7216989ada85ef622",
+    "asset": "Metal032",
+    "source": "https://ambientcg.com/get?file=Metal032_2K-JPG.zip",
+    "license": "CC0"
+  },
+  {
+    "file": "Metal032_2K-JPG_NormalDX.jpg",
+    "sha256": "00fa3111698d0b653a8d47ab180cb0375d6f116355c31ff3659783a75d57de22",
+    "asset": "Metal032",
+    "source": "https://ambientcg.com/get?file=Metal032_2K-JPG.zip",
+    "license": "CC0"
+  },
+  {
+    "file": "Metal032_2K-JPG_NormalGL.jpg",
+    "sha256": "b84a0bfe4639b7e3fac36d04adf1844e0e2654f987a36ece5c966ad77921cd27",
+    "asset": "Metal032",
+    "source": "https://ambientcg.com/get?file=Metal032_2K-JPG.zip",
+    "license": "CC0"
+  },
+  {
+    "file": "Metal032_2K-JPG_Roughness.jpg",
+    "sha256": "8a0570593c028cf0eca32a0107d7bc936817f0de7076f1b8b8f48ea7745aee27",
+    "asset": "Metal032",
+    "source": "https://ambientcg.com/get?file=Metal032_2K-JPG.zip",
+    "license": "CC0"
+  },
+  {
+    "file": "Metal032.png",
+    "sha256": "3647fa0bf225ee70fe835fc7c1943fffc8d2f1aef1b836e3a6599eefbe44e798",
+    "asset": "Metal032",
+    "source": "https://ambientcg.com/get?file=Metal032_2K-JPG.zip",
+    "license": "CC0"
+  }
+]

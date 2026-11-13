@@ -32,4 +32,5 @@ art/campaign/__pycache__/
 *.pyc
 __pycache__/
 *.import
+!DroneArena/missions/lunar_escape/textures/scanned/*.jpg.import
 

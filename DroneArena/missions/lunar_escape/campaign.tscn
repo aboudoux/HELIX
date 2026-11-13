@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://missions/lunar_escape/campaign.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2"]
+[ext_resource type="Script" path="res://missions/lunar_escape/pilot.gd" id="3"]
+[ext_resource type="Script" path="res://missions/lunar_escape/lunar_world.gd" id="4"]
+
+[node name="LunarEscape" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Player" parent="." instance=ExtResource("2")]
+position = Vector3(-10.5, 0.04, 16.4)
+script = ExtResource("3")
+
+[node name="Terrain" type="Node3D" parent="."]
+script = ExtResource("4")
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="Projectiles" type="Node3D" parent="."]
+
+[node name="Wrecks" type="Node3D" parent="."]
+
+[node name="FilmCamera" type="Camera3D" parent="."]
+fov = 65.0
+far = 450.0
